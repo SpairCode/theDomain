@@ -17,6 +17,35 @@ class Home extends React.Component {
   render () {
     return (
       <div className={styles.homeBox}>
+        {/* Header Box */}
+        <div className={styles.headerBox}>
+        <Row>
+          {/* Logo */}
+          <Col span={3}>
+            <div className={styles.logoText}> Fans </div>
+          </Col>
+          {/* Header Link */}
+          <Col span={18} offset={3}>
+            <div className={styles.headerLink}>
+              <Row type="flex" justify="space-around">
+                <Col span={6}>How it Work</Col>
+                <Col span={4}>Find Job</Col>
+                <Col span={4}>Login</Col>
+                <Col span={4}>Sign Up</Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
+        </div>
+        <div className={styles.contentBox}>
+          <Row>
+            <Col span={12}/>>
+            <Col className={styles.imagesBox} span={12}>
+              <img className={styles.images} src={require('../assets/WechatIMG2.png')}/>>
+            </Col>
+          </Row>
+        </div>
+        {/* Fooetr */}
         <div className={styles.footerBox}>
         <Row className={styles.rows} gutter={0}>
           <Col onClick={this.activeIndex.bind(this, 0)} className={this.state.index === 0 ? `${styles.gutterRow} ${styles.active}` : `${styles.gutterRow}`} span={4}>

@@ -1,5 +1,15 @@
 @base-header: #0f77ff;
+@base-headerText: #636B75;
 @base-body: #faf6f2;
 @base-footer: #fff;
 @base-footers: #5ca3ff;
 @base-textColor: #0F77FF;
+
+.br (@x) {
+  border-bottom-left-radius: @x;
+  border-bottom-right-radius: @x;
+}
+
+.bx (@x, @x1, @x2, @x2, @color) {
+  box-shadow: @x @x1 @x2 @color;
+}
