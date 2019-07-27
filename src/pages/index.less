@@ -12,12 +12,19 @@
     font-size: 24px;
     line-height: 123px;
     color: @base-footer;
+    z-index: 1;
     .logoText {
       width: 82px;
       height: 121px;
       text-align: center;
+      .text {
+        margin: 0px auto;
+        width: 63px;
+        height: 112px;
+        .bx(0px, 13px, 20px, 0px, rgba(15, 119, 255, .32));
+      }
       .br(10px);
-      .bx(0px, 2px, 4px, 0px, #0F77FF);
+      .bx(0px, 2px, 4px, 0px, rgba(0, 0, 0, .1));
       background-color: @base-header;
     }
     .headerLink {
@@ -33,6 +40,37 @@
     height: calc(100vh - 118px);
     > div {
       height: 100%;
+      .contentText {
+        margin: 317px 0px 0px 75px;
+        width: 534px;
+        height: 126px;
+        font-size: 48px;
+        color: #3f3f3f;
+      }
+      .searchButton {
+        margin: 57px 0px 0px 75px;
+        width: 591px;
+        height: 72px;
+        line-height: 72px;
+        font-size: 0px;
+        box-shadow: rgba(0, 0, 0, .1) 0px 8px 16px 0px;
+        .searchInput {
+          width: 401px;
+          input {
+            padding: 6px 60px;
+          }
+        }
+        span {
+          height: 100%;
+          line-height: 72px;
+          font-size: 20px;
+        }
+        .btn {
+          width: 190px;
+          height: 72px;
+          vertical-align: top;
+        }
+      }
       > div {
         height: 100%;
       }
