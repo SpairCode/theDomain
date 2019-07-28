@@ -35,7 +35,9 @@ class Home extends React.Component {
               <Row type="flex" justify="space-around">
                 <Col span={6}>How it Work</Col>
                 <Col span={4}>Find Job</Col>
-                <Col span={4}>Login</Col>
+                <Col span={4}>
+                  <a href="./login/login"> Login </a>
+                </Col>
                 <Col span={4}>Sign Up</Col>
               </Row>
             </div>
