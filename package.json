@@ -9,6 +9,7 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "antd": "^3.20.7",
     "less": "^3.9.0",
     "matter-js": "^0.14.2",
     "p5": "^0.9.0",

@@ -20,6 +20,12 @@ const config: IConfig =  {
       },
     }],
   ],
+  routes: [
+    {
+      path: '/login',
+      component: './logins/logins'
+    }
+  ]
 }
 
 export default config;
