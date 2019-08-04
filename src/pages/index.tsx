@@ -36,7 +36,7 @@ class Home extends React.Component {
                 <Col span={6}>How it Work</Col>
                 <Col span={4}>Find Job</Col>
                 <Col span={4}>
-                  <a href="./login/login"> Login </a>
+                  <a href="./logins"> Login </a>
                 </Col>
                 <Col span={4}>Sign Up</Col>
               </Row>

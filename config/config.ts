@@ -1,4 +1,5 @@
 import { IConfig } from 'umi-types';
+import pageRoutes from './routes.config.js';
 
 // ref: https://umijs.org/config/
 const config: IConfig =  {
@@ -20,12 +21,7 @@ const config: IConfig =  {
       },
     }],
   ],
-  routes: [
-    {
-      path: '/login',
-      component: './logins/logins'
-    }
-  ]
+  routes: pageRoutes,
 }
 
 export default config;

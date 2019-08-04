@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './index.less'
+import 'antd/dist/antd.css';
 import { Form, Icon, Input, Button, Row, Col } from 'antd'
 
 class Login extends React.Component {
@@ -56,7 +57,7 @@ class Login extends React.Component {
         <div className={styles.loginForm}>
           <Form onSubmit={this.handleSubmit} className={styles.loginForms}>
             <Form.Item>
-              <h2> 警务课堂培训考核系统 </h2>
+              <h2> Login In </h2>
             </Form.Item>
             <Form.Item>
               {getFieldDecorator('username', { rules: [{ required: true, message: '请输入您的用户名!' }],})  (<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.8)' }} />}   placeholder="用户名" autoComplete="text"/>, )}

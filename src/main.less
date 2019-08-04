@@ -4,10 +4,10 @@
 @base-footer: #fff;
 @base-footers: #5ca3ff;
 @base-textColor: #0F77FF;
+@base-white: #f1f5fc;
 
 .br (@x) {
-  border-bottom-left-radius: @x;
-  border-bottom-right-radius: @x;
+  border-radius: @x;
 }
 
 .bx (@x, @x1, @x2, @x2, @color) {
@@ -16,4 +16,17 @@
 
 .lg (@color1, @color2) {
   background-image: linear-gradient(-45deg, @color1, @color1 50%, @color2 100%);
+}
+
+// width: 100%; height: 100%;
+.complete() {
+  width: 100%;
+  height: 100%;
+}
+
+// flex layout
+.flex() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
