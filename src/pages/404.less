@@ -1,0 +1,26 @@
+@import '../main.less';
+
+.errorBox {
+  .complete;
+  .flex;
+  > div {
+    font-size: 150px;  
+    text-indent: 30px;
+    letter-spacing: 30px;
+    animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  }
+}
+
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
