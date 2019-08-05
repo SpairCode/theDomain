@@ -1,35 +1,54 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import styles from './login.less';
-import P5Wrapper from 'react-p5-wrapper';
-import sketch from './sketch.js';
+import { Row, Col, Form, Icon, Input, Button, Checkbox } from 'antd';
 
 class Login extends React.Component {
 
-  componentDidMount () {
-    
-  }
-  state = {
-    color:[Math.random()*255, Math.random()*255, Math.random()*255]
-  }
-
-  randomColor = () => {
-    this.setState({color:[Math.random()*255, Math.random()*255, Math.random()*255]}
-    )
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+      }
+    })
   }
 
   render () {
+    const { getFieldDecorator } = this.props.form;
     return (
       <div className={styles.loginBox}>
-        <div id="canvas" className={styles.canvas}>
-          <P5Wrapper sketch={sketch} />
-        </div>
-        <div className={styles.contentBox}>
-          <div className={styles.loginForm}/>
-        </div>
+        <Row style={{ height: '100%' }}>
+          {/* photo area */}
+          <Col span={18} style={{ height: '100%' }}>
+            <div className={styles.photo}/>
+          </Col>
+          {/* login area */}
+          <Col span={6} style={{ height: '100%' }}>
+            <div className={styles.rightBox}>
+              <div>
+                <Form onSubmit={this.handleSubmit} className="login-form">
+                  <Form.Item>
+                    <h1 className={styles.title}>LOGIN</h1>
+                  </Form.Item>
+                  <Form.Item>
+                    {getFieldDecorator('username', {rules: [{ required: true, message: 'Please input your username!' }],})(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />,)}
+                  </Form.Item>
+                  <Form.Item>
+                    {getFieldDecorator('password', {rules: [{ required: true, message: 'Please input your Password!' }],})(<Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}type="password" placeholder="Password"/>,)}
+                  </Form.Item>
+                  <Form.Item>
+                    <Button type="primary" htmlType="submit" className={styles.loginButton}>
+                      Log in
+                    </Button>
+                  </Form.Item>
+                </Form>
+              </div>
+            </div>
+          </Col>
+        </Row>
       </div>
     )
   }
 }
 
-export default Login
+export default Form.create()(Login)

@@ -1,30 +1,30 @@
 @import '../../main.less';
 
 .loginBox {
-  width: 100%;
-  height: 100%;
-  // .lg(#EEF1F6, #FCFDFD);
-  font-size: 0px;
-  > .canvas  {
-    position: absolute;
-    top: 0px;
-    width: 100%;
-    height: 100%;
+  .complete;
+  .photo {
+    .complete;
+    background-image: url('./../../assets/kara-eads-buhmhprfo3g-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
-  .contentBox {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    .loginForm {
-      width: 300px;
-      height: 300px;
-      background-color: #ccc;
-      font-size: 16px;
-
+  .rightBox {
+    .complete;
+    .flex;
+    background-color: aliceblue;
+    .bx(-8px, 0px, 35px, 6px, rgba(0, 0, 0, 0.5));
+    > div {
+      width: 80%;
+      .title {
+        text-align: center;
+        font-size: 80px;
+      }
+      .loginButton {
+        display: block;
+        margin: 0px auto;
+        width: 100%;
+      }
     }
   }
 }
