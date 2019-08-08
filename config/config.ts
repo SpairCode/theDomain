@@ -9,7 +9,9 @@ const config: IConfig =  {
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
       antd: false,
-      dva: false,
+      dva: {
+        immer: true
+      },
       dynamicImport: false,
       title: 'theDomain',
       dll: false,
