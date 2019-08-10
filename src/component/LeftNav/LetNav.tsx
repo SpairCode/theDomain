@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'dva';
-import menuList from './../../../config/menu.js';
+import menuList from '../../../config/menu.js';
 import { Menu, Icon } from 'antd';
 import styles from './LeftNav.less';
 const { SubMenu } = Menu;
 
 @connect(({ routes }) => ({ routes }))
 
-export default class LeftNavSlider extends React.Component {
+class LeftNav extends React.Component {
 
   state = {
     menu: {}
@@ -38,7 +38,7 @@ export default class LeftNavSlider extends React.Component {
   }
 
   render () {
-    const { menu } = this.props
+    const { menu } = this.props.routes
     return (
       <div className={styles.leftNav}>
         <Menu
@@ -48,9 +48,11 @@ export default class LeftNavSlider extends React.Component {
           theme="light"
           // inlineCollapsed={this.state.collapsed}
         >
-          {this.renderLeft(this.props.routes.menu)}
+          {this.renderLeft(menu)}
         </Menu>
       </div>
     )
   }
 }
+
+export default LeftNav
