@@ -46,7 +46,7 @@ class LeftNav extends React.Component {
           defaultOpenKeys={['sub1']}
           mode="inline"
           theme="light"
-          // inlineCollapsed={this.state.collapsed}
+          // inlineCollapsed={collapsed}
         >
           {this.renderLeft(menu)}
         </Menu>
