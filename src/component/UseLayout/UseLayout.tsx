@@ -30,7 +30,7 @@ class UseLayout extends React.Component {
             <Icon className={styles.trigger} type={collapsed ? `menu-unfold` : `menu-fold`} onClick={this.toggle}/>
           </Header>
           <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280,}}>
-            Content
+            {this.props.children}
           </Content>
           <Footer style={{ textAlign: 'center' }}> © 2019 SpairFan@126.com </Footer>
         </Layout>
