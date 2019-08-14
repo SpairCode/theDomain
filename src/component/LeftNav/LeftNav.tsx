@@ -33,7 +33,9 @@ class LeftNav extends React.Component {
     this.setState({
       path: paths.key
     })
-    router.push(paths.key)
+    router.push({
+      pathname: paths.key
+    })
   }
 
   renderLeft = (menuLists) => {

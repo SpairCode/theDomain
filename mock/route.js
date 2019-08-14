@@ -7,13 +7,13 @@ const systemSetting = (req, res) => {
       children: [{
         id: 11,
         name: '武器使用规范',
-        enName: 'Basic Table',
-        url: '/content',
+        enName: 'weaponUse',
+        url: '/learn/weaponUse',
       }, {
         id: 12,
         name: '警械使用',
-        enName: 'Basic Table',
-        url: '/student',
+        enName: 'Instruments used',
+        url: '/learn/instrumentsUsed',
       }],
     }
   )

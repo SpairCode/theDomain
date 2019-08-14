@@ -4,7 +4,7 @@ const menu = [
     name: '理论学习',
     enName: 'The theory of learning',
     icon: 'book',
-    url: '/content',
+    url: '/learn',
     children: [],
   },
   {

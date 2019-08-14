@@ -22,7 +22,7 @@ class UseLayout extends React.Component {
     return(
       <Layout style={{ height: '100%', width: '100%' }}>
         <Sider trigger={null} collapsible={true} collapsed={collapsed}>
-          <div className="logo" />
+          <div className={styles.useName}> Fan </div>
           <LeftNav/>
         </Sider>
         <Layout>
