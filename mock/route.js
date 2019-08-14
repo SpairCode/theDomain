@@ -14,16 +14,6 @@ const systemSetting = (req, res) => {
         name: '警械使用',
         enName: 'Basic Table',
         url: '/student',
-      }, {
-        id: 13,
-        name: '警械使用',
-        enName: 'Basic Table',
-        url: '/student',
-      }, {
-        id: 14,
-        name: '警械使用',
-        enName: 'Basic Table',
-        url: '/student',
       }],
     }
   )

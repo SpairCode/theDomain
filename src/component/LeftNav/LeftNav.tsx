@@ -5,13 +5,15 @@ import { Menu, Icon } from 'antd';
 import styles from './LeftNav.less';
 import { withRouter } from "react-router";
 const { SubMenu } = Menu;
+import router from 'umi/router'
 
 @connect(({ routes }) => ({ routes }))
 
 class LeftNav extends React.Component {
 
   state = {
-    menu: {}
+    path: '',
+    openKey: ''
   }
 
   componentWillMount () {
@@ -20,34 +22,39 @@ class LeftNav extends React.Component {
       type: 'routes/fetch',
       payload: menuList
     })
-  }
-  
-  componentWillUnmount () {
     this.setState({
-      menu: this.renderLeft(this.props.routes.menu)
+      menu: this.renderLeft(this.props.routes.menu),
+      path: this.props.location.pathname,
+      openKey: '/' + this.props.location.pathname.split('/')[1]
     })
   }
 
+  url = (paths) => {
+    this.setState({
+      path: paths.key
+    })
+    router.push(paths.key)
+  }
+
   renderLeft = (menuLists) => {
-    const path = this.props.location.pathname
     return menuLists.map(item => {
       if (item.children) {
-        const cItem = item.children.find(item => item.url === path)
-        if (cItem) {
-          this.openKeys = item.url
-        }
-        return <SubMenu key={item.id} title={<span> <Icon type={item.icon} /> <span> {item.name} </span> </span>}>{this.renderLeft(item.children)}</SubMenu>
+        // const cItem = item.children.find(item => item.url === this.state.path)
+        // if (cItem) {
+        //   this.openKeys = "'" + item.url + "'" 
+        //   console.log('this.openKeys:', this.openKeys)
+        // }
+        return <SubMenu key={item.url} title={<span> <Icon type={item.icon} /> <span> {item.name} </span> </span>}>{this.renderLeft(item.children)}</SubMenu>
       } else {
-        return <Menu.Item key={item.url}> <Icon type={item.icon} /> <span> {item.name} </span> </Menu.Item>
+        return <Menu.Item onClick={this.url.bind(item)} key={item.url}> <Icon type={item.icon} /> <span> {item.name} </span> </Menu.Item>
       }
     })
   }
 
   render () {
     const menuNode = this.renderLeft(this.props.routes.menu)
-    const path = this.props.location.pathname
-    const openkeys = this.openKeys
-    const { menu } = this.props.routes
+    const { path } = this.state
+    const openkeys = this.state.openKey
     return (
       <div className={styles.leftNav}>
         <Menu
