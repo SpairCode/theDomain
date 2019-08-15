@@ -29,12 +29,15 @@ class LeftNav extends React.Component {
     })
   }
 
-  url = (paths) => {
-    this.setState({
-      path: paths.key
-    })
+  url = (path, id) => {
     router.push({
-      pathname: paths.key
+      pathname: path,
+      query: {
+        id: id
+      }
+    })
+    this.setState({
+      path: path
     })
   }
 
@@ -48,7 +51,7 @@ class LeftNav extends React.Component {
         // }
         return <SubMenu key={item.url} title={<span> <Icon type={item.icon} /> <span> {item.name} </span> </span>}>{this.renderLeft(item.children)}</SubMenu>
       } else {
-        return <Menu.Item onClick={this.url.bind(item)} key={item.url}> <Icon type={item.icon} /> <span> {item.name} </span> </Menu.Item>
+        return <Menu.Item onClick={this.url.bind(this, item.url, item.id)} key={item.url}> <Icon type={item.icon} /> <span> {item.name} </span> </Menu.Item>
       }
     })
   }

@@ -5,7 +5,6 @@ const menu = [
     enName: 'The theory of learning',
     icon: 'book',
     url: '/learn',
-    children: [],
   },
   {
     id: 2,

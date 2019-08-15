@@ -22,11 +22,11 @@ export default {
   reducers: {
     save (state, action) {
       let menus = action.payload.payload
-      menus[0].children = []
-      for (let index in action.payload.res.children) {
-        menus[0].children.push(action.payload.res.children[index])
-      }
-      console.log(menus)
+      // menus[0].children = []
+      // for (let index in action.payload.res.children) {
+      //   menus[0].children.push(action.payload.res.children[index])
+      // }
+      // console.log(menus)
       return {
         ...state,
         menu: menus
