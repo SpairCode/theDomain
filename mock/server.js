@@ -5,11 +5,10 @@ import request from './request';
 // tableList port data
 const tableData = (req, res) => {
   res.send(Mock.mock({
-    'list|100': [{
+    'list|10': [{
        'key|+1': 1,
        'name':  '@cname',
-       'age': '@natural(10, 40)',
-       'address': '@county(true)'
+       'score': '@natural(10, 100)',
     }]
   }))
 }
@@ -20,6 +19,6 @@ const proxy = {
 
 export default delay(proxy, 1000)
 
-export async function queryTableData () {
+export async function queryTheoryLearning () {
   return request('/api/information/theoryLearningStatistics')
 }
