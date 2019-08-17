@@ -56,7 +56,26 @@ class TheoryLearningStatistics extends React.Component {
       })
     }
     
-    this.state.chart.source(data);
+    this.state.chart.source(data, {
+      x: {
+        alias: ' X Data', // 定义别名
+        tickInterval: 5, // 自定义刻度间距
+        nice: false, // 不对最大最小值优化
+        max: 96, // 自定义最大值
+        min: 62 // 自定义最小是
+      },
+      y: {
+        alias: 'Y Data',
+        tickInterval: 50,
+        nice: false,
+        max: 165,
+        min: 0
+      }
+    })
+
+    this.state.chart.axis('x', {
+      title: 'X Data'
+    })
     this.state.chart.interval().position('name*score').color('score');
     this.state.chart.render();
   }
