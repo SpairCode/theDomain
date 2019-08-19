@@ -73,9 +73,6 @@ class TheoryLearningStatistics extends React.Component {
       }
     })
 
-    this.state.chart.axis('x', {
-      title: 'X Data'
-    })
     this.state.chart.interval().position('name*score').color('score');
     this.state.chart.render();
   }
