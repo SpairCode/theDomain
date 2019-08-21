@@ -14,8 +14,7 @@ class TheoryLearningStatistics extends React.Component {
   state = {
     size: 'default', // Button Size
     chart: '', // G2 Object
-    startTime: moment(new Date()).format('YYYY/MM/DD'),
-    endTime: moment(new Date()).format('YYYY/MM/DD'),
+    date: moment(new Date()).format('YYYY/MM/DD'),
   }
 
   componentWillMount () {
@@ -23,7 +22,7 @@ class TheoryLearningStatistics extends React.Component {
   }
 
   queryData = () => {
-    if (this.state.startTime&&this.state.endTime) {
+    if (this.state.date) {
       const { dispatch } = this.props
       dispatch({
         type: 'theorylearn/fetch'
@@ -38,8 +37,7 @@ class TheoryLearningStatistics extends React.Component {
 
   changeDate = (date, dateString) => {
     this.setState({
-      startTime: dateString[0],
-      endTime: dateString[1]
+      date: dateString
     })
   } 
 
@@ -51,25 +49,33 @@ class TheoryLearningStatistics extends React.Component {
         chart: new G2.Chart({
           container: 'dataBox',
           width: 800,
-          height: 500
+          height: 500,
         })
       })
     }
     
     this.state.chart.source(data, {
-      x: {
-        alias: ' X Data', // 定义别名
-        tickInterval: 5, // 自定义刻度间距
-        nice: false, // 不对最大最小值优化
-        max: 96, // 自定义最大值
-        min: 62 // 自定义最小是
+      name: {
+        alias: '姓名'
       },
-      y: {
-        alias: 'Y Data',
-        tickInterval: 50,
-        nice: false,
-        max: 165,
-        min: 0
+      score: {
+        alias: '分数'
+      }
+    })
+
+    this.state.chart.axis('name', {
+      title: true,
+      line: {
+        stroke: '#E9E9E9',
+        lineDash: [ 3, 3 ]
+      }
+    })
+
+    this.state.chart.axis('score', {
+      title: true,
+      line: {
+        stroke: '#E9E9E9',
+        lineDash: [ 3, 3 ]
       }
     })
 
@@ -84,12 +90,13 @@ class TheoryLearningStatistics extends React.Component {
   }
 
   render () {
-    const { size } = this.state
+    const { size, date } = this.state
     const { loading } = this.props.theorylearn
+    const dateFormat = 'YYYY/MM/DD'
     return (
       <div>
         <div>
-          <RangePicker onChange={this.changeDate} locale={locale} size={size} />
+          <DatePicker defaultValue={moment(date, dateFormat)} format={dateFormat} onChange={this.changeDate} locale={locale} size={size} />
           <Button onClick={this.queryData} style={{ marginLeft: '15px' }} type="primary" icon="search"> Search </Button>
         </div>
         <div>

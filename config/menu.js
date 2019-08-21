@@ -96,7 +96,7 @@ const menu = [
     url: '/information',
     children: [{
       id: 51,
-      name: '理论学习统计',
+      name: '学习成绩统计',
       enName: 'Theory Learning Statistics',
       url: '/information/TheoryLearningStatistics',
     }, {
