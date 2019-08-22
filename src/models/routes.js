@@ -26,7 +26,6 @@ export default {
       // for (let index in action.payload.res.children) {
       //   menus[0].children.push(action.payload.res.children[index])
       // }
-      // console.log(menus)
       return {
         ...state,
         menu: menus

@@ -31,10 +31,7 @@ class LeftNav extends React.Component {
 
   url = (path, id) => {
     router.push({
-      pathname: path,
-      query: {
-        id: id
-      }
+      pathname: path
     })
     this.setState({
       path: path

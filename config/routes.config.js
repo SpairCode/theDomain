@@ -2,7 +2,7 @@ export default [
   { path: '/', component: './index' },
   { path: '/login', component: './login/login' },
   { path: '/logins', component: './logins/logins' },
-  { path: '/', component: './../component/UseLayout/UseLayout.tsx',
+  { path: '/', component: './../component/UseLayout/UseLayout.tsx', Routes: ['./src/pages/routes/PrivateRoute.js'],
   routes: [
       { path: '/theory/DailyPractice', component: 'login/login' },
       { path: '/theory/RandomPractice', component: 'logins/logins' },

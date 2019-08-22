@@ -1,14 +1,34 @@
 import React from 'react';
-import PropTypes from "prop-types";
 import styles from './login.less';
-import { Row, Col, Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Row, Col, Form, Icon, Input, Button, message } from 'antd';
+import { connect } from 'dva';
+
+@connect(({ login }) => ({ login }))
 
 class Login extends React.Component {
+
+  componentDidMount () {
+    localStorage.clear()
+  }
 
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
+        if (values.username.length !== 6) {
+          message.info('用户名长度必须为六位！')
+        } else {
+          const { dispatch } = this.props
+          dispatch({
+            type: 'login/saveLoginMsg',
+            payload: {
+              'usename': values.username,
+              'password': values.password
+            }
+          })
+          localStorage.setItem('sessionID', values.username)
+          localStorage.setItem('isLogin', true)
+        }
       }
     })
   }
