@@ -6,13 +6,6 @@ import Redirect from 'umi/redirect';
 
 class PrivateRoute extends React.Component {
 
-  componentDidMount () {
-    const { dispatch } = this.props
-    dispatch({
-      type: 'login/verifyUse'
-    })
-  }
-
   privateRoute = (isLogin) => {
     if (isLogin) {
       return (
@@ -22,7 +15,7 @@ class PrivateRoute extends React.Component {
       )
     } else {
       return (
-        <Redirect to="/"/>
+        <Redirect to="/login"/>
       )
     }
   }
@@ -30,7 +23,7 @@ class PrivateRoute extends React.Component {
   render () {
     return (
       <div style={{ width: '100%', height: '100%' }}>
-        { this.privateRoute(this.props.login) }
+        { this.privateRoute(this.props.login.isLogin) }
       </div>
     )
   }

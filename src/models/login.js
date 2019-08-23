@@ -8,8 +8,18 @@ export default {
   },
 
   subscriptions: {
-    history({ history }) {
-      console.log('history:', history)
+    setup({ history, dispatch, select }) {
+      debugger
+      // const state = select(state => state)
+      // if (!state.login.isLogin) {
+        let isLogin = localStorage.getItem('isLogin')
+        // isLogin !null false
+        isLogin = isLogin !== null && isLogin !== false ? true : false
+        dispatch({
+          type: 'saveLoginState',
+          payload: isLogin
+        })
+      // }
     }
   },
 
@@ -20,18 +30,6 @@ export default {
         payload: payload
       })
       router.push('information/TheoryLearningStatistics')
-    },
-    *verifyUse({ payload },{  select, call, put }) {
-        const state = yield select(state => state)
-        if (!state.login.isLogin) {
-          let isLogin = localStorage.getItem('isLogin')
-          // isLogin !null false
-          isLogin = isLogin !== null && isLogin !== false ? true : false
-          yield put({
-            type: 'saveLoginState',
-            payload: isLogin
-          })
-        }
     }
   },
 
@@ -44,6 +42,7 @@ export default {
       }
     },
     saveLoginState(state, actions) {
+      debugger
       return {
         ...state,
         isLogin: actions.payload
