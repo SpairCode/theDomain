@@ -3,8 +3,11 @@ import styles from './UseLayout.less';
 import { Layout, Icon, Row, Col, Avatar, Dropdown, Menu } from 'antd';
 import LeftNav from '../LeftNav/LeftNav';
 import Link  from 'umi/link';
+import { connect } from 'dva';
 
 const {Header, Sider, Content, Footer } = Layout;
+
+@connect(({ login }) => ({ login }))
 
 class UseLayout extends React.Component {
 
@@ -18,6 +21,13 @@ class UseLayout extends React.Component {
     })
   }
 
+  loginOut = () => {
+    const { dispatch } = this.props
+    dispatch({
+      type: 'login/loginOut',
+    })
+  }
+
   render () {
     const { collapsed } = this.state
     const menulist = (
@@ -28,7 +38,7 @@ class UseLayout extends React.Component {
           </Link>
         </Menu.Item>
         <Menu.Divider />
-        <Menu.Item>
+        <Menu.Item onClick={this.loginOut}>
           <Link to='/login'> <Icon type="logout" /> 退出登录 </Link>
         </Menu.Item>
       </Menu>
@@ -48,7 +58,7 @@ class UseLayout extends React.Component {
               <Col span={4}/>
               <Col span={4}/>
               <Col span={4} style={{ textAlign: 'center' }}>
-                <Avatar size={50} style={{ marginRight: '20px' }} src="https://avatars3.githubusercontent.com/u/23133465?s=460&v=4" />
+                <Avatar size={50} style={{ marginRight: '20px' }} src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566820203843&di=cc0554ba5c4d318041aeab626ede99fc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F6dab3bb6cab67b909ff26b2e35390bd50ba94c4dfe3-OQZGZ9_fw658" />
                 <Dropdown overlay={menulist}>
                   <span>
                     <span style={{ margin: '0px 5px' }}> Fans </span>

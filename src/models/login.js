@@ -42,10 +42,15 @@ export default {
       }
     },
     saveLoginState(state, actions) {
-      debugger
       return {
         ...state,
         isLogin: actions.payload
+      }
+    },
+    loginOut(state, actions) {
+      return {
+        ...state,
+        isLogin: false
       }
     }
   }
