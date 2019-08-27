@@ -50,14 +50,14 @@ class UseLayout extends React.Component {
           <LeftNav/>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', zIndex: 1, padding: '0px 15px' }}>
+          <Header style={{ background: '#fff', zIndex: 1, padding: '0px 15px', overflow: 'auto' }}>
             <Row type="flex" justify="space-between">
               <Col span={4}>
               <Icon className={styles.trigger} type={collapsed ? `menu-unfold` : `menu-fold`} onClick={this.toggle}/>
               </Col>
               <Col span={4}/>
               <Col span={4}/>
-              <Col span={4} style={{ textAlign: 'center' }}>
+              <Col span={4} style={{ textAlign: 'center', minWidth: '200px' }}>
                 <Avatar size={50} style={{ marginRight: '20px' }} src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1566820203843&di=cc0554ba5c4d318041aeab626ede99fc&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F6dab3bb6cab67b909ff26b2e35390bd50ba94c4dfe3-OQZGZ9_fw658" />
                 <Dropdown overlay={menulist}>
                   <span>

@@ -101,12 +101,12 @@ const menu = [
       url: '/information/TheoryLearningStatistics',
     }, {
       id: 52,
-      name: 'VR训练统计',
+      name: '成绩分布统计',
       enName: 'VR Training Statistics',
-      url: '/information/VRTrainingStatistics',
+      url: '/information/GradeDistribution',
     }, {
       id: 53,
-      name: 'VR考核统计',
+      name: '成绩合格率',
       enName: 'VR Assessment Statistics',
       url: '/information/VRAssessmentStatistics',
     }]

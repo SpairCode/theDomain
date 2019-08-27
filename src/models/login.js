@@ -9,7 +9,6 @@ export default {
 
   subscriptions: {
     setup({ history, dispatch, select }) {
-      debugger
       // const state = select(state => state)
       // if (!state.login.isLogin) {
         let isLogin = localStorage.getItem('isLogin')

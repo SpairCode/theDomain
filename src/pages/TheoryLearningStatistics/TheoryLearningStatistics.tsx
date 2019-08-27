@@ -17,7 +17,7 @@ class TheoryLearningStatistics extends React.Component {
     date: moment(new Date()).format('YYYY/MM/DD'),
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.queryData()
   }
 
@@ -26,10 +26,9 @@ class TheoryLearningStatistics extends React.Component {
       const { dispatch } = this.props
       dispatch({
         type: 'theorylearn/fetch'
-      })
-      setTimeout(() => {
+      }).then(() => {
         this.showChart(this.props.theorylearn.dataBox)
-      }, 1500)
+      })
     } else {
       message.error('开始日期或结束日期不能为空！')
     }
@@ -47,9 +46,10 @@ class TheoryLearningStatistics extends React.Component {
     if (!this.state.chart) {
       this.setState({
         chart: new G2.Chart({
-          container: 'dataBox',
+          id: 'dataBox',
           width: 800,
-          height: 500,
+          height: window.innerHeight - 300,
+          forceFit: true
         })
       })
     }
@@ -81,12 +81,6 @@ class TheoryLearningStatistics extends React.Component {
 
     this.state.chart.interval().position('name*score').color('score');
     this.state.chart.render();
-  }
-
-  componentDidMount () {
-    setTimeout(() => {
-      this.showChart(this.props.theorylearn.dataBox)
-    }, 1500)
   }
 
   render () {
