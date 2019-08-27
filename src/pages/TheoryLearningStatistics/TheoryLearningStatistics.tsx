@@ -27,7 +27,9 @@ class TheoryLearningStatistics extends React.Component {
       dispatch({
         type: 'theorylearn/fetch'
       }).then(() => {
-        this.showChart(this.props.theorylearn.dataBox)
+        if (!this.loginOut) {
+          this.showChart(this.props.theorylearn.dataBox)
+        }
       })
     } else {
       message.error('开始日期或结束日期不能为空！')
@@ -53,6 +55,8 @@ class TheoryLearningStatistics extends React.Component {
         })
       })
     }
+
+    this.state.chart.clear() // clear before data
     
     this.state.chart.source(data, {
       name: {
@@ -81,6 +85,11 @@ class TheoryLearningStatistics extends React.Component {
 
     this.state.chart.interval().position('name*score').color('score');
     this.state.chart.render();
+  }
+
+  componentWillUnmount() {
+    // Component destruction, chart function carry outb render data, lead to error
+    this.loginOut = true
   }
 
   render () {

@@ -15,7 +15,9 @@ class GradeDistribution extends React.Component {
     dispatch({
       type: 'grade/queryGradeData'
     }).then(() => {
-      this.showChart(this.props.grade.gradeData)
+      if (!this.loginOut) {
+        this.showChart(this.props.grade.gradeData)
+      }
     })
   }
 
@@ -32,6 +34,8 @@ class GradeDistribution extends React.Component {
         })
       })
     }
+
+    this.state.chart.clear() // clear before data
     
     this.state.chart.source(data)
 
@@ -43,6 +47,11 @@ class GradeDistribution extends React.Component {
     this.state.chart.intervalStack().position('value').color('title').label('title');
 
     this.state.chart.render();
+  }
+
+  componentWillUnmount() {
+    // Component destruction, chart function carry outb render data, lead to error
+    this.loginOut = true
   }
 
   render () {
