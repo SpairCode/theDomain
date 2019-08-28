@@ -6,7 +6,7 @@ export default [
   routes: [
       { path: '/theory/DailyPractice', component: 'login/login' },
       { path: '/theory/RandomPractice', component: 'logins/logins' },
-      { path: '/information/VRAssessmentStatistics', component: 'VRAssessmentStatistics/VRAssessmentStatistics' },
+      { path: '/information/GradeDistributionStudent', component: 'GradeDistributionStudent/GradeDistributionStudent' },
       { path: '/information/GradeDistribution', component: 'GradeDistribution/GradeDistribution' },
       { path: '/information/TheoryLearningStatistics', component: 'TheoryLearningStatistics/TheoryLearningStatistics' },
       { component: './404' }

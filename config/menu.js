@@ -102,13 +102,13 @@ const menu = [
     }, {
       id: 52,
       name: '成绩分布统计',
-      enName: 'VR Training Statistics',
+      enName: 'GradeDistribution',
       url: '/information/GradeDistribution',
     }, {
       id: 53,
-      name: '成绩合格率',
-      enName: 'VR Assessment Statistics',
-      url: '/information/VRAssessmentStatistics',
+      name: '学生成绩分布',
+      enName: 'GradeDistributionStudent',
+      url: '/information/GradeDistributionStudent',
     }]
   }
 ]
