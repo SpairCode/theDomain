@@ -17,6 +17,7 @@
     "moment": "^2.24.0",
     "p5": "^0.9.0",
     "react": "^16.8.6",
+    "react-document-title": "^2.0.3",
     "react-dom": "^16.8.6",
     "react-p5-wrapper": "^2.0.0",
     "roadhog-api-doc": "^1.1.2",

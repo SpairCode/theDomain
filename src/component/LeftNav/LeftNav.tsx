@@ -29,16 +29,16 @@ class LeftNav extends React.Component {
     })
   }
 
-  url = (path, id) => {
+  url = (path, id, name) => {
     router.push({
-      pathname: path
+      pathname: path,
     })
     this.setState({
       path: path
     })
   }
 
-  renderLeft = (menuLists) => {
+  renderLeft = (menuLists) => { 
     return menuLists.map(item => {
       if (item.children) {
         // const cItem = item.children.find(item => item.url === this.state.path)
@@ -46,12 +46,12 @@ class LeftNav extends React.Component {
         //   this.openKeys = "'" + item.url + "'" 
         //   console.log('this.openKeys:', this.openKeys)
         // }
-        return <SubMenu key={item.url} title={<span> <Icon type={item.icon} /> <span> {item.name} </span> </span>}>{this.renderLeft(item.children)}</SubMenu>
+        return <SubMenu key={item.url} title={<span> <Icon type={item.icon} /> <span> {item.title} </span> </span>}>{this.renderLeft(item.children)}</SubMenu>
       } else {
         if (item.icon) {
-          return <Menu.Item onClick={this.url.bind(this, item.url, item.id)} key={item.url}> <Icon type={item.icon} /> <span> {item.name} </span> </Menu.Item>
+          return <Menu.Item onClick={this.url.bind(this, item.url, item.id)} key={item.url}> <Icon type={item.icon} /> <span> {item.title} </span> </Menu.Item>
         } else {
-          return <Menu.Item onClick={this.url.bind(this, item.url, item.id)} key={item.url}> <span> {item.name} </span> </Menu.Item>
+          return <Menu.Item onClick={this.url.bind(this, item.url, item.id)} key={item.url}> <span> {item.title} </span> </Menu.Item>
         }
       }
     })
