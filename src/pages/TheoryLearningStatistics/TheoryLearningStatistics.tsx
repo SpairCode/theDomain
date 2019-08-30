@@ -98,7 +98,7 @@ class TheoryLearningStatistics extends React.Component {
     const dateFormat = 'YYYY/MM/DD'
     return (
       <div>
-        <div>
+        <div style={{ marginLeft: 30 }}>
           <DatePicker defaultValue={moment(date, dateFormat)} format={dateFormat} onChange={this.changeDate} locale={locale} size={size} />
           <Button onClick={this.queryData} style={{ marginLeft: '15px' }} type="primary" icon="search"> Search </Button>
         </div>

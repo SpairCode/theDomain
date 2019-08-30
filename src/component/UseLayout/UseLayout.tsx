@@ -72,18 +72,18 @@ class UseLayout extends React.Component {
     )
     return(
       <Layout style={{ height: '100%', width: '100%' }}>
-        <Sider trigger={null} collapsible={true} collapsed={collapsed}>
+        <Sider style={{ boxShadow: '2px 0px 6px rgba(0, 0, 0, 0.26)' }} trigger={null} collapsible={true} collapsed={collapsed}>
           <div className={styles.useName}> Fan </div>
           <LeftNav/>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', zIndex: 1, padding: '0px 15px', overflow: 'auto' }}>
+          <Header style={{ boxShadow: '2px 0px 6px rgba(0, 0, 0, 0.26)', background: '#fff', zIndex: 1, padding: '0px 15px', overflow: 'auto' }}>
             <Row type="flex" justify="space-between">
               <Col span={4}>
               <Icon className={styles.trigger} type={collapsed ? `menu-unfold` : `menu-fold`} onClick={this.toggle}/>
               </Col>
               <Col span={4}>
-                <DocumentTitle title={this.title}/>>
+                <DocumentTitle title={this.title}/>
               </Col>
               <Col span={4}/>
               <Col span={4} style={{ textAlign: 'center', minWidth: '200px' }}>
@@ -97,7 +97,7 @@ class UseLayout extends React.Component {
               </Col>
             </Row>
           </Header>
-          <Content style={{margin: '24px 16px', padding: 24, background: '#fff', minHeight: 280, overflow: 'auto'}}>
+          <Content style={{margin: 24, paddingTop: 24 ,background: '#fff', minHeight: 280, overflow: 'auto'}}>
             {this.props.children}
           </Content>
           <Footer style={{ textAlign: 'center' }}> © 2019 SpairFan@126.com </Footer>
