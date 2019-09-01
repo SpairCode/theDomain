@@ -1,7 +1,7 @@
 const menu = [
   {
     id: 1,
-    title: '理论学习',
+    title: '图片管理',
     enName: 'The theory of learning',
     icon: 'book',
     url: '/learn',

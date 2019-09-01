@@ -9,6 +9,7 @@ export default [
       { path: '/information/GradeDistributionStudent', component: 'GradeDistributionStudent/GradeDistributionStudent' },
       { path: '/information/GradeDistribution', component: 'GradeDistribution/GradeDistribution' },
       { path: '/information/TheoryLearningStatistics', component: 'TheoryLearningStatistics/TheoryLearningStatistics' },
+      { path: '/learn', component: 'learn/learn' },
       { component: './404' }
     ]
    },
