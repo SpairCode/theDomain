@@ -55,11 +55,21 @@ const nameData = (req, res) => {
   }))
 }
 
+const listData = (req, res) => {
+  res.send(Mock.mock({
+    'data|10': [{
+      'key|+1': 1,
+      'text': '@cparagraph(1, 3)'
+    }]
+  }))
+}
+
 const proxy = {
   'GET /api/information/theoryLearningStatistics' : tableData,
   'GET /api/information/vrtrainingStatistics' : scoreDistribute,
   'GET /api/information/studentdistribute' : studentDistribute,
   'GET /api/information/studentname' : nameData,
+  'GET /api/information/listdata' : listData,
 }
 
 export default delay(proxy, 1000)
@@ -78,4 +88,8 @@ export async function queryStudentDistribute () {
 
 export async function queryStudentName () {
   return request('/api/information/studentname')
+}
+
+export async function queryListData () {
+  return request('/api/information/listData')
 }

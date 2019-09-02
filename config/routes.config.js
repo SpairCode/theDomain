@@ -4,7 +4,7 @@ export default [
   { path: '/logins', component: './logins/logins' },
   { path: '/', component: './../component/UseLayout/UseLayout.tsx', Routes: ['./src/pages/routes/PrivateRoute.js'],
   routes: [
-      { path: '/theory/DailyPractice', component: 'login/login' },
+      { path: '/theory/DailyPractice', component: 'List/List' },
       { path: '/theory/RandomPractice', component: 'logins/logins' },
       { path: '/information/GradeDistributionStudent', component: 'GradeDistributionStudent/GradeDistributionStudent' },
       { path: '/information/GradeDistribution', component: 'GradeDistribution/GradeDistribution' },
