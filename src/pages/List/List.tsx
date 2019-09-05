@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from './List.less';
+import Zmage from 'react-zmage';
 
 @connect(({ list }) => ({ list }))
 
@@ -9,13 +10,22 @@ class List extends React.Component {
   componentDidMount () {
     const { dispatch } = this.props
     dispatch({
-      type: 'list/queryList'
+      type: 'list/queryImageData'
     })
   }
 
-  showList = (listData) => {
-    if (typeof listData !== 'function') {
-      return listData.map(item => <li className={`${ item.key >= 5 ? `${styles.error}` : `${styles.shadow}` } ${ true ? `${styles.info}` : `${styles.success}` }`} key={item.key}> {item.text} </li>)
+  showList = (imageData) => {
+    if (typeof imageData !== 'function') {
+      let imageUrl = ''
+      let imageArray = []
+      imageData.map((item, index) => {
+        if (index === 0) {
+          imageUrl = item.src
+        } else {
+          imageArray.push(item)
+        }
+      })
+      return <Zmage src={imageUrl} set={imageArray} />
     }
   }  
 

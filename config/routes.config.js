@@ -5,7 +5,6 @@ export default [
   { path: '/', component: './../component/UseLayout/UseLayout.tsx', Routes: ['./src/pages/routes/PrivateRoute.js'],
   routes: [
       { path: '/theory/DailyPractice', component: 'List/List' },
-      { path: '/theory/RandomPractice', component: 'logins/logins' },
       { path: '/information/GradeDistributionStudent', component: 'GradeDistributionStudent/GradeDistributionStudent' },
       { path: '/information/GradeDistribution', component: 'GradeDistribution/GradeDistribution' },
       { path: '/information/TheoryLearningStatistics', component: 'TheoryLearningStatistics/TheoryLearningStatistics' },

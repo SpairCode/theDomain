@@ -14,7 +14,7 @@ const menu = [
     url: '/theory',
     children: [{
       id: 21,
-      title: '日常练习',
+      title: '日常图片',
       enName: 'Daily Practice',
       url: '/theory/DailyPractice',
     }, {

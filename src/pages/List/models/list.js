@@ -1,4 +1,4 @@
-import { queryListData } from '../../../../mock/server';
+import { queryImageData } from '../../../../mock/server';
 
 export default {
   namespace: 'list',
@@ -7,8 +7,8 @@ export default {
   },
 
   effects: {
-    *queryList({ payload }, { call, put }) {
-      const res = yield call(queryListData, payload)
+    *queryImageData({ payload }, { call, put }) {
+      const res = yield call(queryImageData, payload)
       yield put({
         type: 'saveList',
         payload: res.data

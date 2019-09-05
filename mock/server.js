@@ -64,12 +64,22 @@ const listData = (req, res) => {
   }))
 }
 
+const imageData = (req, res) => {
+  res.send(Mock.mock({
+    'data|10': [{
+      'key|+1': 1,
+      'src': '@image("500x500", "#50B347", "#FFF", "@last" )'
+    }]
+  }))
+}
+
 const proxy = {
   'GET /api/information/theoryLearningStatistics' : tableData,
   'GET /api/information/vrtrainingStatistics' : scoreDistribute,
   'GET /api/information/studentdistribute' : studentDistribute,
   'GET /api/information/studentname' : nameData,
   'GET /api/information/listdata' : listData,
+  'GET /api/information/imagedata' : imageData
 }
 
 export default delay(proxy, 1000)
@@ -91,5 +101,9 @@ export async function queryStudentName () {
 }
 
 export async function queryListData () {
-  return request('/api/information/listData')
+  return request('/api/information/listdata')
+}
+
+export async function queryImageData () {
+  return request('/api/information/imagedata')
 }

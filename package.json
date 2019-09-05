@@ -20,6 +20,7 @@
     "react-document-title": "^2.0.3",
     "react-dom": "^16.8.6",
     "react-p5-wrapper": "^2.0.0",
+    "react-zmage": "^0.8.5",
     "roadhog-api-doc": "^1.1.2",
     "umi-request": "^1.2.2"
   },
