@@ -14,14 +14,14 @@ const menu = [
     url: '/theory',
     children: [{
       id: 21,
-      title: '日常图片',
+      title: '图片组件',
       enName: 'Daily Practice',
       url: '/theory/DailyPractice',
     }, {
       id: 22,
-      title: '随机练习',
+      title: '视频组件',
       enName: 'Random Practice',
-      url: '/theory/RandomPractice',
+      url: '/theory/VideoComponent',
     }, {
       id: 23,
       title: '专题练习',
