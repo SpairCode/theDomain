@@ -3,7 +3,8 @@ import { queryImageData } from '../../../../mock/server';
 export default {
   namespace: 'list',
   state: {
-    listData: []
+    listData: [],
+    loading: true
   },
 
   effects: {
@@ -20,7 +21,14 @@ export default {
     saveList(state, actions) {
       return {
         ...state,
-        listData: actions.payload
+        listData: actions.payload,
+        loading: false
+      }
+    },
+    closeLoading(state, actions) {
+      return {
+        ...state,
+        loading: true
       }
     }
   }

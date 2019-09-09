@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'dva';
 import styles from './List.less';
+import { Spin } from 'antd';
 import Zmage from 'react-zmage';
 
 @connect(({ list }) => ({ list }))
@@ -11,6 +12,13 @@ class List extends React.Component {
     const { dispatch } = this.props
     dispatch({
       type: 'list/queryImageData'
+    })
+  }
+
+  componentWillUnmount () {
+    const { dispatch } = this.props
+    dispatch({
+      type: 'list/closeLoading'
     })
   }
 
@@ -30,12 +38,14 @@ class List extends React.Component {
   }  
 
   render () {
-    const { listData } = this.props.list
+    const { listData, loading } = this.props.list
     return (
       <div>
-        <ol className={styles.list}>
-          {this.showList(listData)}
-        </ol>
+        <Spin spinning={loading}>
+          <ol className={styles.list}>
+            {this.showList(listData)}
+          </ol>
+        </Spin>
       </div>
     )
   }

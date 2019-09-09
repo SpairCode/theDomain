@@ -8,7 +8,7 @@ const menu = [
   },
   {
     id: 2,
-    title: '理论考核',
+    title: '组件列表',
     enName: 'The theory of the inspection',
     icon: 'table',
     url: '/theory',
