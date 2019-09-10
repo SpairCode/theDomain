@@ -73,13 +73,26 @@ const imageData = (req, res) => {
   }))
 }
 
+const tableDatas = (req, res) => {
+  res.send(Mock.mock({
+    'data|100': [{
+      'key|+1': 1,
+      'date': '@date',
+      'name': '@cname',
+      'number|1-100': 100,
+      'msg': '@csentence(4)'
+    }]
+  }))
+}
+
 const proxy = {
   'GET /api/information/theoryLearningStatistics' : tableData,
   'GET /api/information/vrtrainingStatistics' : scoreDistribute,
   'GET /api/information/studentdistribute' : studentDistribute,
   'GET /api/information/studentname' : nameData,
   'GET /api/information/listdata' : listData,
-  'GET /api/information/imagedata' : imageData
+  'GET /api/information/imagedata' : imageData,
+  'GET /api/information/tabledatas' :tableDatas
 }
 
 export default delay(proxy, 1000)
@@ -106,4 +119,8 @@ export async function queryListData () {
 
 export async function queryImageData () {
   return request('/api/information/imagedata')
+}
+
+export async function queryTableData () {
+  return request('/api/information/tabledatas')
 }

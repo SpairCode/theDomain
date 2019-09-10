@@ -1,10 +1,10 @@
 import { IConfig } from 'umi-types';
 import pageRoutes from './routes.config.js';
+import path from 'path';
 
 // ref: https://umijs.org/config/
 const config: IConfig =  {
   treeShaking: true,
-  outputPath: './dists',
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
     ['umi-plugin-react', {
@@ -24,6 +24,12 @@ const config: IConfig =  {
     }],
   ],
   routes: pageRoutes,
+  // base: '192.168.10.234:8000/',
+  publicPath: './',
+  history: 'hash',
+  define: {
+    'process.env': 'product'
+  }
 }
 
 export default config;

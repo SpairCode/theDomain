@@ -15,33 +15,18 @@ const menu = [
     children: [{
       id: 21,
       title: '图片组件',
-      enName: 'Daily Practice',
+      enName: 'Photo Component',
       url: '/theory/DailyPractice',
     }, {
       id: 22,
       title: '视频组件',
-      enName: 'Random Practice',
+      enName: 'Video Component',
       url: '/theory/VideoComponent',
     }, {
       id: 23,
-      title: '专题练习',
-      enName: 'Project Practice',
-      url: '/theory/ProjectPractice',
-    }, {
-      id: 24,
-      title: '题目收藏',
-      enName: 'Topic Collection',
-      url: '/theory/TopicCollection',
-    }, {
-      id: 25,
-      title: '模拟考试',
-      enName: 'MockExam',
-      url: '/theory/MockExam',
-    }, {
-      id: 26,
-      title: '在线考试',
-      enName: 'OnlineExam',
-      url: '/theory/OnlineExam',
+      title: '列表组件',
+      enName: 'List Component',
+      url: '/theory/ListComponent',
     }],
   },
   {
