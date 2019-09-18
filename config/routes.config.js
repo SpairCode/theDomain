@@ -10,6 +10,7 @@ export default [
       { path: '/information/TheoryLearningStatistics', component: 'TheoryLearningStatistics/TheoryLearningStatistics' },
       { path: '/theory/VideoComponent', component: 'VideoComponent/VideoComponent' },
       { path: '/theory/ListComponent', component: 'ListComponent/ListComponent' },
+      { path: '/theory/TimeComponent', component: 'TimeComponent/TimeComponent' },
       { path: '/learn', component: 'learn/learn' },
       { component: './404' }
     ]

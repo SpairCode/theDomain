@@ -27,6 +27,11 @@ const menu = [
       title: '列表组件',
       enName: 'List Component',
       url: '/theory/ListComponent',
+    }, {
+      id: 24,
+      title: '计时组件',
+      enName: 'Time Component',
+      url: '/theory/TimeComponent',
     }],
   },
   {

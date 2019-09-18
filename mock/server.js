@@ -85,6 +85,15 @@ const tableDatas = (req, res) => {
   }))
 }
 
+const timeData = (req, res) => {
+  res.send(Mock.mock({
+    'data|1': [{
+      'time': '@natural(40, 50)',
+      'alltime': '@natural(90, 100)'
+    }]
+  }))
+}
+
 const proxy = {
   'GET /api/information/theoryLearningStatistics' : tableData,
   'GET /api/information/vrtrainingStatistics' : scoreDistribute,
@@ -92,7 +101,8 @@ const proxy = {
   'GET /api/information/studentname' : nameData,
   'GET /api/information/listdata' : listData,
   'GET /api/information/imagedata' : imageData,
-  'GET /api/information/tabledatas' :tableDatas
+  'GET /api/information/tabledatas' :tableDatas,
+  'GET /api/information/timeData' : timeData,
 }
 
 export default delay(proxy, 1000)
@@ -123,4 +133,8 @@ export async function queryImageData () {
 
 export async function queryTableData () {
   return request('/api/information/tabledatas')
+}
+
+export async function queryTime() {
+  return request('/api/information/timeData')
 }

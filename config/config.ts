@@ -24,7 +24,7 @@ const config: IConfig =  {
     }],
   ],
   routes: pageRoutes,
-  // base: '192.168.10.234:8000/',
+  // base: 'http://192.168.10.234:8000/',
   publicPath: './',
   history: 'hash',
   define: {
