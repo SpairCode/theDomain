@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'dva';
+import router from 'umi/router';
 import styles from './TimeComponent.less';
-import { Spin } from 'antd';
+import { Spin, Button } from 'antd';
 
 @connect(({ time }) => ({ time }))
 
@@ -26,6 +27,12 @@ class TimeComponent extends React.Component {
     const { dispatch } = this.props
     dispatch({
       type: 'time/loading'
+    })
+  }
+
+  jump = () => {
+    router.push({
+      pathname: '/information/TheoryLearningStatistics'
     })
   }
 
@@ -64,7 +71,10 @@ class TimeComponent extends React.Component {
     const { time, alltime, loading } = this.props.time
     return (
       <div className={styles.timeBox}>
-        <Spin spinning={loading}> {cuttime} </Spin>
+        <Spin spinning={loading}> 
+          <div> {cuttime} </div>
+          <Button type='primary' onClick={this.jump} > Link </Button>
+        </Spin>
       </div>
     )
   }

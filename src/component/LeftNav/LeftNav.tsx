@@ -16,17 +16,28 @@ class LeftNav extends React.Component {
     openKey: ''
   }
 
-  componentWillMount () {
+  componentDidMount () {
     const { dispatch } = this.props
     dispatch({
       type: 'routes/fetch',
       payload: menuList
+    }).then(() => {
+      this.setState({
+        menu: this.renderLeft(this.props.routes.menu),
+        path: this.props.location.pathname,
+        openKey: '/' + this.props.location.pathname.split('/')[1]
+      })
     })
-    this.setState({
-      menu: this.renderLeft(this.props.routes.menu),
-      path: this.props.location.pathname,
-      openKey: '/' + this.props.location.pathname.split('/')[1]
-    })
+  }
+
+  componentDidUpdate (prevProps) {
+    if (prevProps.location.pathname !== this.props.location.pathname) {
+      this.setState({
+        menu: this.renderLeft(this.props.routes.menu),
+        path: prevProps.location.pathname,
+        openKey: '/' + prevProps.location.pathname.split('/')[1]
+      })
+    }
   }
 
   url = (path, id, name) => {
