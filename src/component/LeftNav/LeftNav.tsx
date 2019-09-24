@@ -1,5 +1,5 @@
 import React from 'react'
-import menuList from '../../../config/menu.js';
+import menuList from '../../../config/menu';
 import { Menu, Icon } from 'antd';
 import styles from './LeftNav.less';
 import { withRouter } from "react-router";

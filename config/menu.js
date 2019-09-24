@@ -32,6 +32,11 @@ const menu = [
       title: '计时组件',
       enName: 'Time Component',
       url: '/theory/TimeComponent',
+    }, {
+      id: 25,
+      title: '路由组件',
+      enName: 'Route Component',
+      url: '/theory/RoutePath',
     }],
   },
   {
