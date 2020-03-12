@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'dva';
 import { Spin } from 'antd';
+import G2 from '@antv/g2';
 
 @connect(({ grade }) => ({ grade }))
 
@@ -22,31 +23,36 @@ class GradeDistribution extends React.Component {
   }
 
   showChart (datas) {
-    let data = datas
-
-    if (!this.state.chart) {
-      this.setState({
-        chart: new G2.Chart({
-          id: 'dataBox',
-          width: 800,
-          height: window.innerHeight - 300,
-          forceFit: true
-        })
-      })
-    }
-
-    this.state.chart.clear() // clear before data
+    // data typeof undeundefined
+    if (datas) {
     
-    this.state.chart.source(data)
+      let data = datas
+  
+      if (!this.state.chart) {
+        this.setState({
+          chart: new G2.Chart({
+            id: 'dataBox',
+            width: 800,
+            height: window.innerHeight - 300,
+            forceFit: true
+          })
+        })
+      }
+  
+      this.state.chart.clear() // clear before data
+      
+      this.state.chart.source(data)
+  
+      this.state.chart.coord('theta', {
+        startAngle: Math.PI, // 起始角度
+        endAngle: Math.PI * (3) // 结束角度
+      });
+  
+      this.state.chart.intervalStack().position('value').color('title').label('title');
+  
+      this.state.chart.render();
 
-    this.state.chart.coord('theta', {
-      startAngle: Math.PI, // 起始角度
-      endAngle: Math.PI * (3) // 结束角度
-    });
-
-    this.state.chart.intervalStack().position('value').color('title').label('title');
-
-    this.state.chart.render();
+    }
   }
 
   componentWillUnmount() {

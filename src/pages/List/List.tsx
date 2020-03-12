@@ -23,17 +23,19 @@ class List extends React.Component {
   }
 
   showList = (imageData) => {
-    if (typeof imageData !== 'function') {
+    if (typeof imageData !== 'function' && typeof imageData !== 'undefined') {
       let imageUrl = ''
       let imageArray = []
-      imageData.map((item, index) => {
-        if (index === 0) {
-          imageUrl = item.src
-        } else {
-          imageArray.push(item)
-        }
-      })
-      return <Zmage src={imageUrl} set={imageArray} />
+      if (imageData.length === 0) {
+        imageData.map((item, index) => {
+          if (index === 0) {
+            imageUrl = item.src
+          } else {
+            imageArray.push(item)
+          }
+        })
+        return <Zmage src={imageUrl} set={imageArray} />
+      }
     }
   }  
 
